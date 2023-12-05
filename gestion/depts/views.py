@@ -11,17 +11,19 @@ def lista(request):
     return render(request, 'index.html', contexto)
 
 def alta(request):
-    # dept = Departamento()
+    dept = Departamento()
     # cursor = dept.listaDepartamentos()
     # contexto = {
     #     'lista_departamentos': cursor
     # }
-    return render(request, 'alta.html')
+    contexto = dept.tablaDepartamentos()
+
+    return render(request, 'alta.html', contexto)
 
 def add(request):
     dept = Departamento()
     dept.add(request)
-    context = dept.tablaDepartamentos()
+    contexto = dept.tablaDepartamentos()
 
     return render(request, 'index.html', contexto)
 

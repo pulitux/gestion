@@ -13,13 +13,33 @@
 </body>
       <form method="post" action="add">
         {% csrf_token %}
-          <h4>Introduce los datos del Departamento: </h4>
-          ID : <input type="text" name="txtNumero" />
-          <br/>
-          Nombre : <input type="text" name="txtNombre" />
-          <br/>
-          Localidad : <input type="text" name="txtLocalidad" />
-          <br/>
-          <br/><br/>
-          <input type="submit" value="Añadir Departamento">
-    </form></html>
+            <div data-role="page" id="create">
+            <div data-role="header"><h2>Nuevo Departamento</h2></div>
+            <div data-role="content">
+                <fieldset style ="border: 1px solid black; padding: 20px; border-radius=10px color:dimgrey;">
+                    <legend>Introduzca los datos</legend>
+                        <form>
+                            <input type="text" name="txtNumero" placeholder="Numero" list="ids"/>
+                                <datalist id="ids">
+                                    {% for num in ids %}
+                                      <option value="{{num}}"></option>
+                                    {% endfor %}
+                                </datalist><br/>
+                            <input type="text" name="txtNombre" placeholder="Nombre" list="names"/><br/>
+                                <datalist id="names">
+                                    {% for name in names %}
+                                      <option value="{{name}}"></option>
+                                    {% endfor %}
+                                </datalist>
+                            <input type="text" name="txtLocalidad" placeholder="Localidad " list="locs"/><br/>
+                                <datalist id="locs">
+                                    {% for loc in locs %}
+                                      <option value="{{loc}}"></option>
+                                    {% endfor %}
+                                </datalist>
+                            <br/><br/>
+                            <button type="submit">Guardar</button>
+                        </form>
+                  </fieldset>
+
+      </form></html>

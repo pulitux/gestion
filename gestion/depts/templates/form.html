@@ -15,25 +15,24 @@
                             <input type="text" name="txtNumero" placeholder="Numero" list="ids"/><br/>
                                 <datalist id="ids">
                                     {% for num in ids %}
-                                      <option value="{{num}}"</option>
+                                      <option> value="{{num}}"</option>
                                     {% endfor %}
                                 </datalist>
                             <input type="text" name="txtNombre" placeholder="Nombre" list="names"/><br/>
                                 <datalist id="names">
                                     {% for name in names %}
-                                      <option value="{{name}}"</option>
+                                      <option> value="{{name}}"</option>
                                     {% endfor %}
                                 </datalist>
                             <input type="text" name="txtLocalidad" placeholder="Localidad " list="locs"/><br/>
                                 <datalist id="locs">
                                     {% for loc in locs %}
-                                      <option value="{{loc}}"</option>
+                                      <option> value="{{loc}}"</option>
                                     {% endfor %}
                                 </datalist>
                             <br/><br/>
                             <button type="submit">Guardar</button>
                         </form>
                   </fieldset>
-                <a href="#master">
 </body>
 </html>

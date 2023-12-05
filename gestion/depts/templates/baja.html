@@ -13,14 +13,18 @@
 </body>
       <form method="post" action="delete">
         {% csrf_token %}
-          <h4>Introduce el numero del Departamento: </h4>
-          ID : <input type="text" name="txtNumero" list="ids"/>
-          <datalist id="ids">
-            {% for num in ids %}
-              <option value="{{num}}"</option>
-            {% endfor %}
-          </datalist>
-          <br/>
-          <br/><br/>
-          <input type="submit" value="Borrar Departamento">
+            <div data-role="page" id="create">
+            <div data-role="header"><h2>Borrar Departamento</h2></div>
+            <div data-role="content">
+                <fieldset style ="border: 1px solid black; padding: 20px; border-radius=10px color:dimgrey;">
+                    <legend>Introduzca los datos</legend>
+                        <form>
+                            <input type="text" name="txtNumero" placeholder="Numero" list="ids"/>
+                                <datalist id="ids">
+                                    {% for num in ids %}
+                                      <option value="{{num}}"></option>
+                                    {% endfor %}
+                                </datalist><br/>
+                            <br/><br/>
+                            <button type="submit">Borrar</button>
     </form></html>

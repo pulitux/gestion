@@ -13,23 +13,24 @@
 </body>
       <form method="post" action="modify">
         {% csrf_token %}
-          <h4>Introduce el numero del Departamento: </h4>
-          ID : <input type="text" name="txtNumero" list="ids"/>
-            <datalist id="ids">
-                {% for num in ids %}
-                  <option value="{{num}}"</option>
-                {% endfor %}
-          </datalist>
-
-          <br/>
-          <h4>Introduce la nueva localidad del Departamento: </h4>
-          Localidad : <input type="text" name="txtLocalidad" list="locs" />
-            <datalist id="locs">
-                {% for loc in locs %}
-                  <option value="{{loc}}"</option>
-                {% endfor %}
-          <br/>
-          <br/>
-          <br/><br/>
-          <input type="submit" value="Modificar Departamento">
+            <div data-role="page" id="create">
+            <div data-role="header"><h2>Modificar Departamento</h2></div>
+            <div data-role="content">
+                <fieldset style ="border: 1px solid black; padding: 20px; border-radius=10px color:dimgrey;">
+                    <legend>Introduzca los datos</legend>
+                        <form>
+                            <input type="text" name="txtNumero" placeholder="Numero" list="ids"/>
+                                <datalist id="ids">
+                                    {% for num in ids %}
+                                      <option value="{{num}}"></option>
+                                    {% endfor %}
+                                </datalist><br/>
+                            <input type="text" name="txtLocalidad" placeholder="Nueva Localidad " list="locs"/><br/>
+                                <datalist id="locs">
+                                    {% for loc in locs %}
+                                      <option value="{{loc}}"></option>
+                                    {% endfor %}
+                                </datalist>
+                            <br/><br/>
+                            <button type="submit">Modificar</button>
     </form></html>
