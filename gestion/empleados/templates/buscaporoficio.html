@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+      <form method="post" action="muestraporoficio">
+        {% csrf_token %}
+          <h4>Introduzca Oficio para ver Apellido y Salario de los empleados:</h4>
+          Oficio: <input type="text" name="txtOficio" list="oficios" />
+                <datalist id="oficios">
+                    {%for oficio, c in lista_oficios %}
+                    <option value="{{oficio}}"></option>
+                    {% endfor%}
+                </datalist>
+          <br/><br/>
+          <input type="submit" value="Ver Datos">
+    </form>
+
+</body>
+</html>

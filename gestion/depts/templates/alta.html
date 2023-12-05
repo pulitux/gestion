@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Departamentos - Alta</title>
+</head>
+<body>
+<a href="alta">ALTA</a>
+<a href="baja">BAJA</a>
+<a href="modificar">MODIFICACION</a>
+<br/><br/><br/><br/><br/><br>
+
+</body>
+      <form method="post" action="add">
+        {% csrf_token %}
+          <h4>Introduce los datos del Departamento: </h4>
+          ID : <input type="text" name="txtNumero" />
+          <br/>
+          Nombre : <input type="text" name="txtNombre" />
+          <br/>
+          Localidad : <input type="text" name="txtLocalidad" />
+          <br/>
+          <br/><br/>
+          <input type="submit" value="Añadir Departamento">
+    </form></html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Departamentos - Modificacion</title>
+</head>
+<body>
+<a href="alta">ALTA</a>
+<a href="baja">BAJA</a>
+<a href="modificar">MODIFICACION</a>
+<br/><br/><br/><br/><br/><br>
+
+</body>
+      <form method="post" action="modify">
+        {% csrf_token %}
+          <h4>Introduce el numero del Departamento: </h4>
+          ID : <input type="text" name="txtNumero" list="ids"/>
+            <datalist id="ids">
+                {% for num in ids %}
+                  <option value="{{num}}"</option>
+                {% endfor %}
+          </datalist>
+
+          <br/>
+          <h4>Introduce la nueva localidad del Departamento: </h4>
+          Localidad : <input type="text" name="txtLocalidad" list="locs" />
+            <datalist id="locs">
+                {% for loc in locs %}
+                  <option value="{{loc}}"</option>
+                {% endfor %}
+          <br/>
+          <br/>
+          <br/><br/>
+          <input type="submit" value="Modificar Departamento">
+    </form></html>

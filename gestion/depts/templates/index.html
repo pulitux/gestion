@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Departamentos</title>
+</head>
+<body>
+<a href="alta">ALTA</a>
+<a href="baja">BAJA</a>
+<a href="modificar">MODIFICACION</a>
+<br/><br/><br/><br/><br/><br>
+<table border="1" style="width:100%">
+        <tr>
+            <th>ID</th>
+            <th>NOMBRE</th>
+            <th>LOCALIDAD</th>
+        </tr>
+        {% for id,name,loc in lista_departamentos%}
+            <tr>
+                <td>{{id}}</td>
+                <td>{{name}}</td>
+                <td>{{loc}}</td>
+            </tr>
+       {% endfor%}
+</table>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Departamentos - Baja</title>
+</head>
+<body>
+<a href="alta">ALTA</a>
+<a href="baja">BAJA</a>
+<a href="modificar">MODIFICACION</a>
+<br/><br/><br/><br/><br/><br>
+
+</body>
+      <form method="post" action="delete">
+        {% csrf_token %}
+          <h4>Introduce el numero del Departamento: </h4>
+          ID : <input type="text" name="txtNumero" list="ids"/>
+          <datalist id="ids">
+            {% for num in ids %}
+              <option value="{{num}}"</option>
+            {% endfor %}
+          </datalist>
+          <br/>
+          <br/><br/>
+          <input type="submit" value="Borrar Departamento">
+    </form></html>

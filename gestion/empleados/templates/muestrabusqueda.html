@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+
+<body>
+<h1 style="color:blue;">EMPLEADOS</h1>
+
+<table border="1" style="width:100%">
+        <tr>
+            <th>APELLIDO</th>
+            <th>OFICIO</th>
+            <th>SALARIO</th>
+        </tr>
+        {% for ape,ofi,sal in listado_empleados%}
+            <tr>
+                <td>{{ape}}</td>
+                <td>{{ofi}}</td>
+                <td>{{sal}}</td>
+            </tr>
+       {% endfor%}
+</table>
+<br/><br/><br/>
+
+<div style="background-color:yellow;float:left">
+    <a href="javascript:history.back()">VOLVER</a>
+
+    </div>
+
+</body>
+</html>

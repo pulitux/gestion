@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+      <form method="post" action="muestrabusqueda">
+        {% csrf_token %}
+          <h4>Introduzca Nombre para ver Oficio y Salario del empleado:</h4>
+          Nombre: <input type="text" name="txtNombre" list="nombres" />
+                <datalist id="nombres">
+                    {%for nombre, c in lista_nombres %}
+                    <option value="{{nombre}}"></option>
+                    {% endfor%}
+                </datalist>
+          <br/><br/>
+          <input type="submit" value="Ver Datos">
+    </form>
+
+</body>
+</html>
