@@ -1,22 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+{% load static %}
 <head>
     <meta charset="UTF-8">
     <title>Departamentos - Alta</title>
 </head>
 <body>
-<a href="alta">ALTA</a>
-<a href="baja">BAJA</a>
-<a href="modificar">MODIFICACION</a>
-<br/><br/><br/><br/><br/><br>
-
-</body>
       <form method="post" action="add">
         {% csrf_token %}
-            <div data-role="page" id="create">
             <div data-role="header"><h2>Nuevo Departamento</h2></div>
             <div data-role="content">
-                <fieldset style ="border: 1px solid black; padding: 20px; border-radius=10px color:dimgrey;">
+                <fieldset style ="border: 3px solid black; padding: 20px; border-radius=10px color:black;">
                     <legend>Introduzca los datos</legend>
                         <form>
                             <input type="text" name="txtNumero" placeholder="Numero" list="ids"/>
@@ -41,5 +35,14 @@
                             <button type="submit">Guardar</button>
                         </form>
                   </fieldset>
-
-      </form></html>
+            <br/><br/>
+            </div>
+        </form>
+    <div style="text-align:center;">
+    <button onclick="window.location.href='index';">Listado</button>
+    <button onclick="window.location.href='alta';">Alta</button>
+    <button onclick="window.location.href='baja';">Baja</button>
+    <button onclick="window.location.href='modificar';">Modificar</button>
+    </div>
+</body>
+</form></html>

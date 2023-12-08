@@ -8,30 +8,29 @@ def lista(request):
     contexto = {
         'lista_departamentos': cursor
     }
-    return render(request, 'index.html', contexto)
+    return render(request, 'dept_index.html', contexto)
 
 def alta(request):
     dept = Departamento()
-    # cursor = dept.listaDepartamentos()
-    # contexto = {
-    #     'lista_departamentos': cursor
-    # }
     contexto = dept.tablaDepartamentos()
+    print(contexto)
 
-    return render(request, 'alta.html', contexto)
+    return render(request, 'dept_alta.html', contexto)
 
 def add(request):
     dept = Departamento()
     dept.add(request)
-    contexto = dept.tablaDepartamentos()
-
-    return render(request, 'index.html', contexto)
+    cursor = dept.listaDepartamentos()
+    contexto = {
+        'lista_departamentos': cursor
+    }
+    return render(request, 'dept_index.html', contexto)
 
 def baja(request):
     dept = Departamento()
     contexto = dept.tablaDepartamentos()
 
-    return render(request, 'baja.html', contexto)
+    return render(request, 'dept_baja.html', contexto)
 
 def delete(request):
     dept = Departamento()
@@ -40,13 +39,13 @@ def delete(request):
     contexto = {
         'lista_departamentos': cursor
     }
-    return render(request, 'index.html', contexto)
+    return render(request, 'dept_index.html', contexto)
 
 def modificar(request):
     dept = Departamento()
     contexto = dept.tablaDepartamentos()
 
-    return render(request,'modificar.html', contexto)
+    return render(request,'dept_modificar.html', contexto)
 
 def modify(request):
     dept = Departamento()
@@ -55,9 +54,12 @@ def modify(request):
     contexto = {
         'lista_departamentos': cursor
     }
-    return render(request, 'index.html', contexto)
+    return render(request, 'dept_index.html', contexto)
 
-def form(request):
+def search(request):
     dept = Departamento()
-    contexto = dept.tablaDepartamentos()
-    return render(request, 'form.html', contexto)
+    cursor = dept.search(request)
+    contexto = {
+        'lista_departamentos': cursor
+    }
+    return render(request, 'dept_index.html', contexto)

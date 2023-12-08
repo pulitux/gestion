@@ -1,9 +1,10 @@
 import cx_Oracle
+# import oracledb as cx_Oracle
 
 
 class Departamento:
     def __init__(self):
-        self.connection = cx_Oracle.connect("system", "pythonoracle", "localhost/XE")
+        self.connection = cx_Oracle.connect(user="system", password="oraclepass", dsn="localhost/XE")
 
     def tablaDepartamentos(self):
         cursor = self.connection.cursor()
@@ -19,11 +20,11 @@ class Departamento:
                 name.append(n)
                 loc.append(l)
             r = {"ids": id, "names": name, "locs": loc}
+            return r
 
         except self.connection.Error as error:
             print("Error: ", error)
 
-        return r
     def listaDepartamentos(self):
         cursor = self.connection.cursor()
 
@@ -38,11 +39,12 @@ class Departamento:
 
     def add(self, request):
         cursor = self.connection.cursor()
-        numero = request.POST['txtNumero']
+
+        numero = int(request.POST['txtNumero'])
         nombre = request.POST['txtNombre'].upper()
         localidad = request.POST['txtLocalidad'].upper()
         try:
-            consulta = "insert into dept DNOMBRE values (:numero, :nombre, :localidad)"
+            consulta = "insert into dept values (:numero, :nombre, :localidad)"
             cursor.execute(consulta, (numero, nombre, localidad))
             self.connection.commit()
 
@@ -69,5 +71,14 @@ class Departamento:
             cursor.execute(consulta, (localidad, numero))
             self.connection.commit()
 
+        except self.connection.Error as error:
+            print("Error: ", error)
+
+    def search(self, request):
+        cursor = self.connection.cursor()
+        numero = request.GET.get('dept')
+        try:
+            consulta = "select * from dept where DEPT_NO = :numero"
+            cursor.execute(consulta, (numero,))
         except self.connection.Error as error:
             print("Error: ", error)

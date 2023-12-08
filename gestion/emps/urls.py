@@ -1,5 +1,5 @@
 from django.urls import path
-from depts import views
+from emps import views
 
 urlpatterns = [
     path('', views.lista, name='lista'),
@@ -10,5 +10,4 @@ urlpatterns = [
     path('add', views.add, name='add'),
     path('delete', views.delete, name='delete'),
     path('modify', views.modify, name='modify'),
-    path('search', views.search, name='search'),
     ]

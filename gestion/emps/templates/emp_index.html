@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Empleados</title>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+<div data-role="page" id="create"></div>
+<div data-role="header"><h2>Empleados</h2></div>
+<div data-role="content"></div>
+        <fieldset style ="border: 3px solid black; padding: 20px; color:black;">
+            <legend>Lista de Empleados</legend>
+                <table border="2" style="width:100%">
+                    <tr>
+                        <th>ID</th>
+                        <th>NOMBRE</th>
+                        <th>OFICIO</th>
+                        <th>SUPERIOR</th>
+                        <th>FECHA DE ALTA</th>
+                        <th>SALARIO</th>
+                        <th>COMISION</th>
+                        <th>DEPARTAMENTO</th>
+                    </tr>
+                    {% for id,name,ofi,sup,alta,sal,com,dept in lista_empleados%}
+                        <tr>
+                            <td>{{id}}</td>
+                            <td>{{name}}</td>
+                            <td>{{ofi}}</td>
+                            <td>{{sup}}</td>
+                            <td>{{alta}}</td>
+                            <td>{{sal}}</td>
+                            <td>{{com}}</td>
+                            <td>{{dept}}</td>
+                        </tr>
+                   {% endfor%}
+                </table>
+        </fieldset>
+    <br></br>
+    <div style="text-align:center;">
+    <button onclick="window.location.href='index';">Listado</button>
+    <button onclick="window.location.href='alta';">Alta</button>
+    <button onclick="window.location.href='baja';">Baja</button>
+    <button onclick="window.location.href='modificar';">Modificar</button>
+    </div>
+
+</body>
+</html>
