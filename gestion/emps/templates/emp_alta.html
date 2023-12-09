@@ -13,7 +13,7 @@
                 <fieldset style ="border: 3px solid black; padding: 20px; border-radius=10px color:black;">
                     <legend>Introduzca los datos</legend>
                         <form>
-                            <input type="text" name="txtNumero" placeholder="Numero" list="ids"/>
+                            <input type="number" name="txtNumero" placeholder="Numero" list="ids"/>
                                 <datalist id="ids">
                                     {% for num in ids %}
                                       <option value="{{num}}"></option>
@@ -25,10 +25,40 @@
                                       <option value="{{name}}"></option>
                                     {% endfor %}
                                 </datalist>
-                            <input type="text" name="txtLocalidad" placeholder="Localidad " list="locs"/><br/>
-                                <datalist id="locs">
-                                    {% for loc in locs %}
-                                      <option value="{{loc}}"></option>
+                            <input type="text" name="txtOficio" placeholder="Oficio " list="ofis"/><br/>
+                                <datalist id="ofis">
+                                    {% for ofi in ofis %}
+                                      <option value="{{ofi}}"></option>
+                                    {% endfor %}
+                                </datalist>
+                            <input type="number" name="txtSup" placeholder="Superior " list="sups"/><br/>
+                                <datalist id="sups">
+                                    {% for sup in sups %}
+                                      <option value="{{sup}}"></option>
+                                    {% endfor %}
+                                </datalist>
+                            <input type="date" name="txtAlta" placeholder="Fecha de Alta " list="altas"/><br/>
+                                <datalist id="altas">
+                                    {% for alta in altas %}
+                                      <option value="{{alta}}"></option>
+                                    {% endfor %}
+                                </datalist>
+                            <input type="number" name="txtSalario" placeholder="Salario " list="sals"/><br/>
+                                <datalist id="sals">
+                                    {% for sal in salarios %}
+                                      <option value="{{sal}}"></option>
+                                    {% endfor %}
+                                </datalist>
+                            <input type="number" name="txtComision" placeholder="Comision " list="coms"/><br/>
+                                <datalist id="coms">
+                                    {% for com in coms %}
+                                      <option value="{{com}}"></option>
+                                    {% endfor %}
+                                </datalist>
+                            <input type="number" name="txtDepartamento" placeholder="Departamento " list="depts"/><br/>
+                                <datalist id="depts">
+                                    {% for dept in depts %}
+                                      <option value="{{dept}}"></option>
                                     {% endfor %}
                                 </datalist>
                             <br/><br/>

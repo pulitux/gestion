@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Departamentos - Modificacion</title>
+    <title>Empleados - Modificacion</title>
 </head>
 
 <body>
       <form method="post" action="modify">
         {% csrf_token %}
-            <div data-role="header"><h2>Modificar Departamento</h2></div>
+            <div data-role="header"><h2>Modificar Empleado</h2></div>
             <div data-role="content">
                 <fieldset style ="border: 3px solid black; padding: 20px; border-radius=10px color:black;">
                     <legend>Introduzca los datos</legend>
@@ -18,10 +18,10 @@
                                       <option value="{{num}}"></option>
                                     {% endfor %}
                                 </datalist><br/>
-                            <input type="text" name="txtLocalidad" placeholder="Nueva Localidad " list="locs"/><br/>
-                                <datalist id="locs">
-                                    {% for loc in locs %}
-                                      <option value="{{loc}}"></option>
+                            <input type="text" name="txtSalario" placeholder="Nuevo Salario " list="salarios"/><br/>
+                                <datalist id="salarios">
+                                    {% for sal in salarios %}
+                                      <option value="{{sal}}"></option>
                                     {% endfor %}
                                 </datalist>
                             <br/><br/>
