@@ -19,7 +19,7 @@ def search(request):
     contexto = {
         'lista_departamentos': cursor
     }
-    return render(request, 'dept_index.html', contexto)
+    return render(request, 'dept/search.html', contexto)
 def form(request):
     dept = Departamento()
     action = request.POST['action'] if request.method == 'POST' else ''
@@ -37,4 +37,4 @@ def form(request):
         'lista': dept.list(),
         'tabla': dept.table(),
     }
-    return render(request, 'form.html', contexto)
+    return render(request, 'dept/form.html', contexto)

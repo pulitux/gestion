@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>Empleados</title>
+    <style>
+        body {
+            font-family: arial, sans-serif;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: center;
+            padding: 3px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
+</head>
+<body>
+    <form method="post" action="form">
+        {% csrf_token %}
+        <div data-role="header"><h2>Empleados</h2></div>
+        <div data-role="content">
+            <fieldset style ="border: 3px solid black; padding: 20px; border-radius=10px color:black;">
+                <legend>Introduzca los datos</legend>
+                    <input type="text" name="txtNumero" placeholder="Numero" list="ids"/>
+                        <datalist id="ids">
+                            {% for num in tabla.ids %}
+                            <option value="{{num}}"></option>
+                            {% endfor %}
+                        </datalist><br/>
+                    <input type="text" name="txtNombre" placeholder="Nombre" list="names"/><br/>
+                        <datalist id="names">
+                            {% for name in tabla.names %}
+                            <option value="{{name}}"></option>
+                            {% endfor %}
+                        </datalist>
+                    <input type="text" name="txtLocalidad" placeholder="Localidad " list="locs"/><br/>
+                        <datalist id="locs">
+                            {% for loc in tabla.locs %}
+                            <option value="{{loc}}"></option>
+                            {% endfor %}
+                        </datalist>
+                    <br/><br/>
+                    <button type="submit" name="action" value="add">Alta</button>
+                    <button type="submit" name="action" value="delete">Baja</button>
+                    <button type="submit" name="action" value="update">Modificar</button>
+            </fieldset>
+            <br/><br/>
+            <fieldset style ="border: 3px solid black; padding: 20px; color:black;">
+            <legend>Lista de Empleados</legend>
+                <table border="0" style="width:100%">
+                    <tr>
+                        <th>ID</th>
+                        <th>NOMBRE</th>
+                        <th>LOCALIDAD</th>
+                    </tr>
+                    {% for id,name,loc in lista%}
+                    <tr>
+                        <td>{{id}}</td>
+                        <td>{{name}}</td>
+                        <td>{{loc}}</td>
+                    </tr>
+                    {% endfor%}
+                </table>
+            </fieldset>
+            <br></br>
+        </div>
+    </form>
+</body>

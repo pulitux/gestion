@@ -3,7 +3,7 @@ import cx_Oracle
 
 class Empleado:
     def __init__(self):
-        self.connection = cx_Oracle.connect(user="system", password="oraclepass", dsn="localhost/XE")
+        self.connection = cx_Oracle.connect(user="system", password="pythonoracle", dsn="localhost/XE")
 
     def tablaEmpleados(self):
         cursor = self.connection.cursor()
